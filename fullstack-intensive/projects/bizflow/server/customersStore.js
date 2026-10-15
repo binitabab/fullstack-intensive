@@ -1,14 +1,10 @@
 /**
- * MOCK API — pretends to be a backend.
- *
- * UPGRADE PATH (Week 2):
- * Replace function bodies with fetch('/api/customers') etc.
- * Keep the same exported names so pages barely change.
- *
- * WHY delay? Real networks are slow. UI must handle loading states.
+ * In-memory store on the SERVER.
+ * Milestone 3 replaces this with MongoDB — keep the same function names.
  */
 
-import { normalizeCustomerInput } from "../domain/customer.js";
+import { randomUUID } from "node:crypto";
+import { normalizeCustomerInput } from "../shared/customerValidation.js";
 
 const SEED = [
   {
@@ -63,43 +59,23 @@ const SEED = [
 ];
 
 /** @type {typeof SEED} */
-let db = structuredClone(SEED);
+let customers = structuredClone(SEED);
 
-const DELAY_MS = 450;
-
-function wait(ms = DELAY_MS) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+export function listCustomers() {
+  return customers.map((c) => ({ ...c }));
 }
 
-/** Flip to true in DevTools to practice ErrorState: mockApi.forceFail = true */
-export const mockApi = {
-  forceFail: false,
-};
-
-async function maybeFail() {
-  await wait();
-  if (mockApi.forceFail) {
-    throw new Error("Mock API failure — practice the error UI (set mockApi.forceFail = false to recover)");
-  }
-}
-
-export async function listCustomers() {
-  await maybeFail();
-  return structuredClone(db);
-}
-
-export async function createCustomer(input) {
-  await maybeFail();
+export function createCustomer(input) {
   const clean = normalizeCustomerInput(input);
   const customer = {
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     ...clean,
     createdAt: new Date().toISOString(),
   };
-  db = [customer, ...db];
-  return structuredClone(customer);
+  customers = [customer, ...customers];
+  return { ...customer };
 }
 
-export async function resetMockData() {
-  db = structuredClone(SEED);
+export function resetCustomers() {
+  customers = structuredClone(SEED);
 }

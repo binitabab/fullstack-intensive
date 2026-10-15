@@ -1,28 +1,15 @@
 /**
  * DOMAIN — customer rules (no React).
- * Same idea as P1 expense domain: UI can change; rules stay.
+ * Validation is shared with the Express API (see shared/customerValidation.js).
  */
+
+import { normalizeCustomerInput } from "../../shared/customerValidation.js";
+
+export { normalizeCustomerInput };
 
 /**
  * @typedef {{ id: string, name: string, email: string, status: "active" | "lead" | "inactive", createdAt: string }} Customer
  */
-
-/**
- * @param {{ name?: string, email?: string, status?: string }} input
- */
-export function normalizeCustomerInput(input) {
-  const name = typeof input?.name === "string" ? input.name.trim() : "";
-  const email = typeof input?.email === "string" ? input.email.trim().toLowerCase() : "";
-  const status = input?.status || "lead";
-
-  if (!name) throw new Error("Name is required");
-  if (!email || !email.includes("@")) throw new Error("A valid email is required");
-  if (!["active", "lead", "inactive"].includes(status)) {
-    throw new Error("Status must be active, lead, or inactive");
-  }
-
-  return { name, email, status };
-}
 
 /**
  * @param {Customer[]} customers

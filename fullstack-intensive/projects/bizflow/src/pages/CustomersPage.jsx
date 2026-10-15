@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { createCustomer, listCustomers } from "../data/mockApi.js";
+import { createCustomer, listCustomers } from "../data/api.js";
 import { queryCustomers } from "../domain/customer.js";
 import { CustomerForm } from "../components/CustomerForm.jsx";
 import { DataTable } from "../components/DataTable.jsx";

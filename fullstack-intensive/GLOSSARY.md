@@ -120,8 +120,23 @@ When a tip says **term**, skim the entry here. You learn terms by using them in 
 | **Pagination** | Show data in pages | `page` + `pageSize` slice |
 | **HMR** | Hot Module Replacement | Vite updates UI without full refresh |
 
+## Milestone 2 additions (Live API)
+
+| Term | Plain English | Precise meaning |
+|------|---------------|-----------------|
+| **Express** | Node library for HTTP APIs | Routes, middleware, JSON responses |
+| **Route** | URL + method handler | e.g. `GET /api/customers` |
+| **Middleware** | Code in the request pipeline | `express.json()`, CORS, error handler |
+| **CORS** | Cross-Origin Resource Sharing | Browser security for other origins |
+| **Proxy (Vite)** | Forward `/api` to Express in dev | Avoids messy local CORS setup |
+| **fetch** | Browser HTTP client | Used in `src/data/api.js` |
+| **Status 201** | Created | Successful POST that made a resource |
+| **Status 400** | Bad request | Validation failed |
+| **concurrently** | Run multiple npm scripts together | API + Vite in one `npm run dev` |
+| **Shared module** | Code both server and client use | `shared/customerValidation.js` |
+
 ## Coming later (preview only — learn when we build)
 
-Express, middleware, MongoDB, document, collection, PostgreSQL, table, row, SQL, join, migration, JWT, authentication, authorization, TypeScript, deploy, environment variable, rate limit, CORS, RAG…
+MongoDB, document, collection, PostgreSQL, table, row, SQL, join, migration, JWT, authentication, authorization, TypeScript, deploy, environment variable, rate limit, RAG…
 
 We’ll fill those on the day we use them.

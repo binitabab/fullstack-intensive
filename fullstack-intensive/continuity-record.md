@@ -2,28 +2,19 @@
 
 **Program:** 6-Week Full-Stack Engineering Intensive
 
-**Current day and week:** Week 1  
-**Current phase:** Single-product mode locked — BizFlow only  
-**Current lesson:** Study BizFlow Milestone 1 (HOW-IT-WORKS)  
-**Active project:** **BizFlow** (`projects/bizflow`)  
-**Current project milestone:** M1 done (UI + mock API); **M2 next** (Express in same repo)
+**Current day and week:** Week 2  
+**Current phase:** Single-product BizFlow  
+**Current lesson:** Study M2 HOW-IT-WORKS (Live API)  
+**Active project:** BizFlow (`projects/bizflow`)  
+**Current project milestone:** **M2 done**; M3 next (Mongo + auth)
 
 **Completed:**
-- Strategic blueprint + market report  
-- Foundation sandbox: expense-tracker (archived under `_foundation/`)  
-- BizFlow M1: React dashboard + customers + mock API  
-- Realigned curriculum to **one evolving portfolio app**
+- M1 UI + mock  
+- M2 Express API + `src/data/api.js` + Vite proxy + shared validation  
+- GitHub + CI  
 
-**Files / moves:**
-- `projects/bizflow/` (renamed from bizflow-dashboard)  
-- `projects/_foundation/expense-tracker/`  
-- `PRODUCT.md` — authoritative milestone map  
+**Verify locally:** `npm run dev` → UI :5173, API :4000/api/health  
 
-**Tests:** `npm run build` in bizflow succeeded (pre-rename)  
-**Next pending task:** After you finish M1 study → **Milestone 2: Express API inside BizFlow**  
-**Do not start:** a second portfolio app  
+**Next:** Milestone 3 — MongoDB + auth in same repo  
 
-**GitHub:** https://github.com/binitabab/fullstack-intensive (`main`)  
-**CI:** workflow file ready locally; needs `gh auth refresh -s workflow` once to push Actions  
-
-**Persistent rules:** Engineering Protocol + learn-by-reading + single-product BizFlow + auto commit/push (no Cursor co-author)  
+**GitHub:** https://github.com/binitabab/fullstack-intensive  

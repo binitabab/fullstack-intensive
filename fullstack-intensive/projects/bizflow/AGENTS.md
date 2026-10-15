@@ -2,40 +2,44 @@
 
 ## What this is
 
-**BizFlow** — one evolving app. Current slice: React UI + **mock API**.  
-Next: Express in `server/`, same UI, swap `src/data/mockApi.js` → real HTTP client.
+**BizFlow** — evolving small-business operations app.  
+**Current:** Milestone 2 — React UI + **Express live API** (in-memory data).  
+**Next:** Milestone 3 — MongoDB + auth.
 
 ## Stack
 
-- React 19 + Vite 8
-- React Router DOM 7
-- Plain CSS (no UI kit yet)
+- React 19 + Vite 8 + React Router 7
+- Express 5 + cors
+- Shared validation in `shared/`
 
 ## Commands
 
 ```bash
-npm run dev      # http://localhost:5173
-npm run build    # production bundle
-npm run preview  # serve dist/
+npm run dev       # API :4000 + web :5173 (proxy /api)
+npm run dev:api   # API only
+npm run dev:web   # Vite only (needs API running)
+npm run build     # frontend production build
+npm start:api     # API only (alias)
 ```
 
 ## Layout
 
 ```
-src/domain/     validation / pure rules (no React)
-src/data/       mockApi — tomorrow this becomes fetch('/api/...')
-src/components/ reusable UI pieces
-src/pages/      route screens
-src/App.jsx     routes + shell
+shared/           rules used by API (+ re-exported to UI domain)
+server/           Express app + in-memory store
+src/data/api.js   fetch client (same names as old mock)
+src/pages/        route screens
+src/components/   reusable UI
+docs/             HOW-IT-WORKS per milestone
 ```
 
 ## Conventions
 
-- Components stay presentational where possible; data loads in pages
-- Always model loading / error / empty / success
-- Validate before calling create/update
-- No secrets in repo (none needed here)
+- Validate on the server; never trust the client alone
+- Keep `listCustomers` / `createCustomer` names stable across adapters
+- No secrets in git
+- Four UI states: loading / error / empty / ready
 
-## Out of scope (P2)
+## Out of scope (until later milestones)
 
-Auth, real backend, Mongo/Postgres, TypeScript, charts libraries
+Auth, Mongo/Postgres, payments, TypeScript (M6)

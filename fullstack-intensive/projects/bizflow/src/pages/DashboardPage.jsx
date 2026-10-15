@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { listCustomers } from "../data/mockApi.js";
+import { listCustomers } from "../data/api.js";
 import { customerStats } from "../domain/customer.js";
 import { StatCard } from "../components/StatCard.jsx";
 import { LoadingState } from "../components/LoadingState.jsx";

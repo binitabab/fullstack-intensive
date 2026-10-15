@@ -1,25 +1,21 @@
-# Architecture — BizFlow Dashboard P2
+# Architecture — BizFlow (through Milestone 2)
 
 ```
-URL ──► App (Routes)
-          └── Layout (nav + Outlet)
-                ├── DashboardPage ──► mockApi.listCustomers ──► domain.customerStats
-                └── CustomersPage ──► mockApi + domain.queryCustomers
-                      ├── CustomerForm (validate → create)
-                      ├── DataTable
-                      └── Loading / Error / Empty states
+Browser (React)
+   fetch /api/customers
+        │
+        ▼
+Vite dev proxy (:5173) ──► Express (:4000)
+                              │
+                              ├─ shared/customerValidation.js
+                              └─ server/customersStore.js (memory)
 ```
 
-## Upgrade to Week 2 (Express)
+## Milestone upgrades
 
-Keep page components. Change `src/data/mockApi.js` (or add `src/data/api.js`) to:
-
-```js
-export async function listCustomers() {
-  const res = await fetch("http://localhost:PORT/api/customers");
-  if (!res.ok) throw new Error("Failed to load");
-  return res.json();
-}
-```
-
-Same exports → minimal UI churn.
+| Milestone | Change |
+|-----------|--------|
+| M1 | mockApi in browser only |
+| M2 (now) | Express + `src/data/api.js` |
+| M3 | Replace memory store with Mongo; add auth middleware |
+| M5 | Postgres for relational core |
