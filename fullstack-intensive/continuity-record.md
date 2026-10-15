@@ -23,4 +23,7 @@
 **Next pending task:** After you finish M1 study → **Milestone 2: Express API inside BizFlow**  
 **Do not start:** a second portfolio app  
 
-**Persistent rules:** Engineering Protocol + learn-by-reading + single-product BizFlow  
+**GitHub:** https://github.com/binitabab/fullstack-intensive (`main`)  
+**CI:** workflow file ready locally; needs `gh auth refresh -s workflow` once to push Actions  
+
+**Persistent rules:** Engineering Protocol + learn-by-reading + single-product BizFlow + auto commit/push (no Cursor co-author)  

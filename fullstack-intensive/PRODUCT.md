@@ -1,7 +1,9 @@
 # BizFlow — One Product, Progressive Milestones
 
+**GitHub:** https://github.com/binitabab/fullstack-intensive  
 **Portfolio rule:** You ship **one** application — **BizFlow**.  
-Every milestone adds capability to the same codebase. You do not start a new app each week.
+Every milestone adds capability to the same codebase. You do not start a new app each week.  
+Progress is committed and pushed to `main` automatically (no AI co-author trailers).
 
 ```
 projects/bizflow/          ← THE product (always)
