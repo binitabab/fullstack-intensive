@@ -1,0 +1,14 @@
+{
+  "name": "expense-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "P1 learning app — vanilla JS expense tracker with upgradeable store boundary",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/self-check.js",
+    "start": "echo \"Open index.html in Chrome (File → Open, or use a static server).\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

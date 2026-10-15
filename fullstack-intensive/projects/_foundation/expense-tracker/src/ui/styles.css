@@ -1,0 +1,168 @@
+/* Simple, readable UI — not a design system yet.
+   TIP: keep CSS boring until product value is clear. */
+
+:root {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1a1d23;
+  --muted: #5c6570;
+  --border: #d8dee6;
+  --accent: #0f6e56;
+  --danger: #b42318;
+  --focus: #2f6fed;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+}
+
+.lede {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .row.form {
+    grid-template-columns: 2fr 1fr 1fr auto;
+    align-items: end;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr 1fr auto;
+  }
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #fff;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+button.danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: transparent;
+}
+
+.total {
+  font-size: 1.25rem;
+  font-weight: 650;
+}
+
+.msg {
+  min-height: 1.25rem;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+.msg.ok {
+  color: var(--accent);
+}
+
+.empty {
+  color: var(--muted);
+  padding: 0.75rem 0;
+}
+
+ul.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li.item {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 640px) {
+  li.item {
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+  }
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: #e8f5f0;
+  color: var(--accent);
+  font-size: 0.75rem;
+}
