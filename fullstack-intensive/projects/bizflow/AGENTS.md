@@ -1,45 +1,45 @@
-# AGENTS.md — BizFlow (single portfolio product)
+# AGENTS.md — BizFlow
 
-## What this is
+## Current milestone
 
-**BizFlow** — evolving small-business operations app.  
-**Current:** Milestone 2 — React UI + **Express live API** (in-memory data).  
-**Next:** Milestone 3 — MongoDB + auth.
+**M3 — MongoDB + cookie JWT auth** (customers owned per user).
 
 ## Stack
 
 - React 19 + Vite 8 + React Router 7
-- Express 5 + cors
-- Shared validation in `shared/`
+- Express 5 + Mongoose + MongoDB 7 (Docker)
+- bcryptjs, jsonwebtoken, cookie-parser, dotenv
 
 ## Commands
 
 ```bash
-npm run dev       # API :4000 + web :5173 (proxy /api)
-npm run dev:api   # API only
-npm run dev:web   # Vite only (needs API running)
-npm run build     # frontend production build
-npm start:api     # API only (alias)
+npm run dev:mongo   # docker compose up -d mongo
+npm run dev         # mongo + API :4000 + web :5173
+npm run build
 ```
+
+Copy `.env.example` → `.env` (never commit `.env`).
 
 ## Layout
 
 ```
-shared/           rules used by API (+ re-exported to UI domain)
-server/           Express app + in-memory store
-src/data/api.js   fetch client (same names as old mock)
-src/pages/        route screens
-src/components/   reusable UI
-docs/             HOW-IT-WORKS per milestone
+docker-compose.yml
+shared/                 shared validation
+server/
+  models/               User, Customer
+  middleware/           auth, errors
+  routes/               auth, customers
+src/auth/               AuthContext
+src/data/api.js         fetch + credentials
 ```
 
-## Conventions
+## Security conventions
 
-- Validate on the server; never trust the client alone
-- Keep `listCustomers` / `createCustomer` names stable across adapters
+- Hash passwords; never store plaintext
+- httpOnly cookie for JWT
+- Filter customers by `owner` on the server
 - No secrets in git
-- Four UI states: loading / error / empty / ready
 
-## Out of scope (until later milestones)
+## Next
 
-Auth, Mongo/Postgres, payments, TypeScript (M6)
+M4 Products + Orders

@@ -1,21 +1,28 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./auth/AuthContext.jsx";
 import { Layout } from "./components/Layout.jsx";
-import { DashboardPage } from "./pages/DashboardPage.jsx";
+import { ProtectedRoute } from "./components/ProtectedRoute.jsx";
 import { CustomersPage } from "./pages/CustomersPage.jsx";
+import { DashboardPage } from "./pages/DashboardPage.jsx";
+import { LoginPage } from "./pages/LoginPage.jsx";
+import { RegisterPage } from "./pages/RegisterPage.jsx";
 
-/**
- * App = route table.
- * URL path → which page component to show inside Layout.
- */
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<DashboardPage />} />
-          <Route path="customers" element={<CustomersPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<DashboardPage />} />
+              <Route path="customers" element={<CustomersPage />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }

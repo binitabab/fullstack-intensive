@@ -8,11 +8,26 @@ on:
 
 jobs:
   bizflow:
-    name: BizFlow build
+    name: BizFlow build + API auth smoke
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: fullstack-intensive/projects/bizflow
+    services:
+      mongo:
+        image: mongo:7
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "mongosh --eval \"db.adminCommand('ping')\""
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      MONGODB_URI: mongodb://127.0.0.1:27017/bizflow_ci
+      JWT_SECRET: ci-only-secret-not-for-production
+      CLIENT_ORIGIN: http://127.0.0.1:5173
+      PORT: "4000"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,21 +37,32 @@ jobs:
           cache-dependency-path: fullstack-intensive/projects/bizflow/package-lock.json
       - run: npm ci
       - run: npm run build
-      - name: API health smoke
+      - name: API auth smoke
         run: |
           node server/index.js &
           API_PID=$!
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            if curl -sf http://127.0.0.1:4000/api/health; then
-              curl -sf http://127.0.0.1:4000/api/customers >/dev/null
-              kill $API_PID
-              exit 0
+          cleanup() { kill $API_PID 2>/dev/null || true; }
+          trap cleanup EXIT
+
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:4000/api/health >/dev/null; then
+              break
             fi
             sleep 0.5
           done
-          kill $API_PID || true
-          echo "API failed to become healthy"
-          exit 1
+          curl -sf http://127.0.0.1:4000/api/health
+
+          # unauthenticated customers must fail
+          code=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:4000/api/customers)
+          test "$code" = "401"
+
+          jar=$(mktemp)
+          curl -sf -c "$jar" -H 'Content-Type: application/json' \
+            -d '{"name":"CI User","email":"ci@example.com","password":"password123"}' \
+            http://127.0.0.1:4000/api/auth/register >/dev/null
+
+          curl -sf -b "$jar" http://127.0.0.1:4000/api/auth/me >/dev/null
+          curl -sf -b "$jar" http://127.0.0.1:4000/api/customers >/dev/null
 
   foundation-expense-tracker:
     name: Foundation expense-tracker check

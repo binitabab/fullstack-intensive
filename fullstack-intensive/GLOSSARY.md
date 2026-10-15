@@ -135,8 +135,24 @@ When a tip says **term**, skim the entry here. You learn terms by using them in 
 | **concurrently** | Run multiple npm scripts together | API + Vite in one `npm run dev` |
 | **Shared module** | Code both server and client use | `shared/customerValidation.js` |
 
+## Milestone 3 additions (Mongo + Auth)
+
+| Term | Plain English | Precise meaning |
+|------|---------------|-----------------|
+| **MongoDB** | Document database | Stores JSON-like documents |
+| **Collection** | Group of similar documents | Like a table, but flexible fields |
+| **Document** | One record | e.g. one User or Customer |
+| **Mongoose** | JS library for Mongo | Schemas, models, queries |
+| **Authentication** | Prove who you are | Login / register |
+| **Authorization** | What you’re allowed to do | Only your customers |
+| **bcrypt / hash** | One-way password transform | Store hash, never plaintext |
+| **JWT** | Signed session token | Proves identity until it expires |
+| **httpOnly cookie** | Cookie JS cannot read | Safer place to keep the JWT |
+| **ODM** | Object–Document Mapper | Mongoose maps classes ↔ documents |
+| **owner** | User id on each customer | Server filters by this field |
+
 ## Coming later (preview only — learn when we build)
 
-MongoDB, document, collection, PostgreSQL, table, row, SQL, join, migration, JWT, authentication, authorization, TypeScript, deploy, environment variable, rate limit, RAG…
+PostgreSQL, table, row, SQL, join, migration, TypeScript, deploy, environment variable, rate limit, RAG…
 
 We’ll fill those on the day we use them.

@@ -1,10 +1,9 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext.jsx";
 
-/**
- * Shell around every page.
- * <Outlet /> = where the matched route page renders (React Router).
- */
 export function Layout() {
+  const { user, logout } = useAuth();
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -21,6 +20,12 @@ export function Layout() {
           </NavLink>
           <NavLink to="/customers">Customers</NavLink>
         </nav>
+        <div className="session">
+          <span className="muted session-email">{user?.email}</span>
+          <button type="button" className="btn btn-secondary" onClick={() => logout()}>
+            Log out
+          </button>
+        </div>
       </header>
       <main className="main">
         <Outlet />

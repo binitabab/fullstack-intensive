@@ -1,12 +1,11 @@
 /**
- * HTTP client — same function names as the old mockApi.
- * Pages keep importing listCustomers / createCustomer; only this file changed.
- *
- * In dev, Vite proxies /api → Express (see vite.config.js).
+ * HTTP client — credentials: 'include' sends the httpOnly auth cookie.
+ * Vite proxies /api → Express so cookie Domain matches the UI origin.
  */
 
 async function request(path, options = {}) {
   const res = await fetch(path, {
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
       ...(options.headers || {}),
@@ -26,17 +25,41 @@ async function request(path, options = {}) {
 
   if (!res.ok) {
     const message = body?.error || `Request failed (${res.status})`;
-    throw new Error(message);
+    const err = new Error(message);
+    err.status = res.status;
+    throw err;
   }
 
   return body;
 }
 
-export async function listCustomers() {
+export function register(input) {
+  return request("/api/auth/register", {
+    method: "POST",
+    body: JSON.stringify(input),
+  });
+}
+
+export function login(input) {
+  return request("/api/auth/login", {
+    method: "POST",
+    body: JSON.stringify(input),
+  });
+}
+
+export function logout() {
+  return request("/api/auth/logout", { method: "POST" });
+}
+
+export function getMe() {
+  return request("/api/auth/me");
+}
+
+export function listCustomers() {
   return request("/api/customers");
 }
 
-export async function createCustomer(input) {
+export function createCustomer(input) {
   return request("/api/customers", {
     method: "POST",
     body: JSON.stringify(input),

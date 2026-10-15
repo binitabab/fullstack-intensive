@@ -2,19 +2,19 @@
 
 **Program:** 6-Week Full-Stack Engineering Intensive
 
-**Current day and week:** Week 2  
-**Current phase:** Single-product BizFlow  
-**Current lesson:** Study M2 HOW-IT-WORKS (Live API)  
+**Current phase:** BizFlow M3 (Mongo + auth) code complete; local Docker Hub timed out  
 **Active project:** BizFlow (`projects/bizflow`)  
-**Current project milestone:** **M2 done**; M3 next (Mongo + auth)
+**Current milestone:** **M3 done in code**; verify when Mongo is reachable  
+**Next:** M4 Products + Orders  
 
-**Completed:**
-- M1 UI + mock  
-- M2 Express API + `src/data/api.js` + Vite proxy + shared validation  
-- GitHub + CI  
+**Blocked locally (network):** `docker pull mongo:7` / some npm fetches timed out.  
+**CI:** GitHub Actions uses a Mongo service — will validate auth smoke on push.  
 
-**Verify locally:** `npm run dev` → UI :5173, API :4000/api/health  
-
-**Next:** Milestone 3 — MongoDB + auth in same repo  
+**Run when Mongo is up:**
+```bash
+cd projects/bizflow
+npm run dev:mongo   # or any Mongo on :27017
+npm run dev
+```
 
 **GitHub:** https://github.com/binitabab/fullstack-intensive  

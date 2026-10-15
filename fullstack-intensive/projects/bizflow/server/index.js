@@ -1,64 +1,58 @@
 /**
- * BizFlow API — Express (Milestone 2)
- *
- * LISTEN: http://127.0.0.1:4000
- * Routes:
- *   GET  /api/health
- *   GET  /api/customers
- *   POST /api/customers
- *
- * Data is still in-memory (lost on server restart). Mongo arrives in Milestone 3.
+ * BizFlow API — Milestone 3
+ * Express + MongoDB + cookie JWT auth
  */
 
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
-import { createCustomer, listCustomers } from "./customersStore.js";
+import { config } from "./config.js";
+import { connectDb } from "./db.js";
+import { errorHandler, notFound } from "./middleware/errors.js";
+import authRoutes from "./routes/auth.js";
+import customerRoutes from "./routes/customers.js";
 
-const PORT = Number(process.env.PORT) || 4000;
 const app = express();
 
-app.use(cors({ origin: true }));
+app.use(
+  cors({
+    origin: config.clientOrigin,
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: "32kb" }));
+app.use(cookieParser());
 
 app.get("/api/health", (_req, res) => {
-  res.json({ ok: true, service: "bizflow-api", milestone: 2 });
+  res.json({ ok: true, service: "bizflow-api", milestone: 3 });
 });
 
-app.get("/api/customers", (_req, res) => {
-  res.json(listCustomers());
-});
+app.use("/api/auth", authRoutes);
+app.use("/api/customers", customerRoutes);
 
-app.post("/api/customers", (req, res, next) => {
-  try {
-    const customer = createCustomer(req.body ?? {});
-    res.status(201).json(customer);
-  } catch (err) {
-    next(err);
-  }
-});
+app.use(notFound);
+app.use(errorHandler);
 
-// Central error handler — predictable JSON for the React client
-app.use((err, _req, res, _next) => {
-  const status = err.status || 500;
-  const message =
-    status === 500 ? "Internal server error" : err.message || "Request failed";
-  if (status === 500) {
-    console.error(err);
-  }
-  res.status(status).json({ error: message });
-});
+async function start() {
+  await connectDb();
 
-const server = app.listen(PORT, "127.0.0.1", () => {
-  console.log(`BizFlow API listening on http://127.0.0.1:${PORT}`);
-});
+  const server = app.listen(config.port, "127.0.0.1", () => {
+    console.log(`BizFlow API listening on http://127.0.0.1:${config.port}`);
+  });
 
-server.on("error", (err) => {
-  if (err.code === "EADDRINUSE") {
-    console.error(
-      `Port ${PORT} is already in use. Stop the other process, then run npm run dev again.`,
-    );
-  } else {
-    console.error(err);
-  }
+  server.on("error", (err) => {
+    if (err.code === "EADDRINUSE") {
+      console.error(
+        `Port ${config.port} is already in use. Stop the other process, then run npm run dev again.`,
+      );
+    } else {
+      console.error(err);
+    }
+    process.exit(1);
+  });
+}
+
+start().catch((err) => {
+  console.error("[bizflow] failed to start:", err.message || err);
   process.exit(1);
 });

@@ -29,7 +29,8 @@ Update after each session. Evidence = code path, test output, or written explana
 |-----|-------|--------|----------|------------|------|
 | 1 | Foundation expense-tracker | archived | under `_foundation/` | — | Reference only |
 | 2 | BizFlow M1 UI + mock | built | `projects/bizflow`; build OK | — | Studied |
-| 3 | BizFlow M2 Live API | built | Express + api.js; health OK | — | Study HOW-IT-WORKS-M2 |
+| 3 | BizFlow M2 Live API | built | Express + api.js; health OK | — | Studied |
+| 4 | BizFlow M3 Mongo + auth | built | models/routes/UI; Docker Hub timeout | Network for mongo image | Study HOW-IT-WORKS-M3; start Mongo |
 
 ## Project backlog (BizFlow + trackers)
 
@@ -37,7 +38,7 @@ Update after each session. Evidence = code path, test output, or written explana
 |----|------|----------|--------|
 | BizFlow M1 | UI + mock API | Must | done |
 | BizFlow M2 | Express live API | Must | done |
-| BizFlow M3 | Mongo + auth | Must | not started |
+| BizFlow M3 | Mongo + auth | Must | done (code; needs Mongo to demo) |
 | BizFlow M4 | Products + orders | Must | not started |
 | BizFlow M5 | Postgres core | Must | not started |
 | BizFlow M6 | Harden + deploy | Must | not started |

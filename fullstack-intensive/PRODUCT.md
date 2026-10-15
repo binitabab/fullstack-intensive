@@ -33,7 +33,7 @@ A small-business operations app for an owner-operator:
 |-----------|-------------------------|--------------|--------|
 | **M1 — UI + mock API** | React shell, dashboard, customers CRUD (mock), loading/error/empty | Clickable business UI | **Done** |
 | **M2 — Live API** | Express REST; frontend talks to real HTTP; mock swapped for `api.js` | UI + API on your machine | **Done** |
-| **M3 — Persist + Auth** | MongoDB; register/login; server authorization; your data only | Secure multi-user demo | Planned |
+| **M3 — Persist + Auth** | MongoDB; register/login; server authorization; your data only | Secure multi-user demo | **Done** |
 | **M4 — Products + Orders** | Full core loop: customers → products → orders + dashboard counts | End-to-end business story | Planned |
 | **M5 — Relational core** | PostgreSQL for core relations (orders/customers/products); migrations | SQL-backed production path | Planned |
 | **M6 — Harden & ship** | TypeScript where it pays off; tests; deploy; security checklist | Live URL | Planned |
@@ -74,4 +74,4 @@ Study current slice: `projects/bizflow/docs/HOW-IT-WORKS.md`
 
 ## Next concrete step
 
-**Milestone 3:** MongoDB persistence + register/login + server authorization — still the same BizFlow UI + API.
+**Milestone 4:** Products + Orders (full business loop) — still the same BizFlow app.
