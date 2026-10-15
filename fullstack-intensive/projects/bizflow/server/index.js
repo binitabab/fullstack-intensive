@@ -48,6 +48,17 @@ app.use((err, _req, res, _next) => {
   res.status(status).json({ error: message });
 });
 
-app.listen(PORT, "127.0.0.1", () => {
+const server = app.listen(PORT, "127.0.0.1", () => {
   console.log(`BizFlow API listening on http://127.0.0.1:${PORT}`);
+});
+
+server.on("error", (err) => {
+  if (err.code === "EADDRINUSE") {
+    console.error(
+      `Port ${PORT} is already in use. Stop the other process, then run npm run dev again.`,
+    );
+  } else {
+    console.error(err);
+  }
+  process.exit(1);
 });

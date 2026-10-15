@@ -5,7 +5,7 @@
   "description": "BizFlow — small-business operations app (portfolio product)",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev": "concurrently -k -n api,web -c blue,green \"node server/index.js\" \"vite\"",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",

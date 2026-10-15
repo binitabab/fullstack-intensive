@@ -5,7 +5,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   server: {
+    host: "127.0.0.1",
     port: 5173,
+    strictPort: true, // fail clearly if 5173 is busy (don't silently hop ports)
     proxy: {
       // Browser calls /api/... → Express on :4000 (avoids CORS pain in local dev)
       "/api": {
