@@ -5,13 +5,18 @@ import {
   setAuthCookie,
   signToken,
 } from "../middleware/auth.js";
-import { User } from "../models/User.js";
+import {
+  createUser,
+  findUserByEmail,
+  hashPassword,
+} from "../repos/users.js";
 import { seedCustomersForUser } from "../seedForUser.js";
 
 const router = Router();
 
 function publicUser(user) {
-  return { id: String(user._id), name: user.name, email: user.email };
+  const id = user._id ?? user.id;
+  return { id: String(id), name: user.name, email: user.email };
 }
 
 router.post("/register", async (req, res, next) => {
@@ -38,9 +43,10 @@ router.post("/register", async (req, res, next) => {
       throw err;
     }
 
-    const passwordHash = await User.hashPassword(password);
-    const user = await User.create({ name, email, passwordHash });
-    await seedCustomersForUser(user._id);
+    const passwordHash = await hashPassword(password);
+    const user = await createUser({ name, email, passwordHash });
+    const userId = user._id ?? user.id;
+    await seedCustomersForUser(userId);
 
     const token = signToken(user);
     setAuthCookie(res, token);
@@ -63,7 +69,7 @@ router.post("/login", async (req, res, next) => {
       throw err;
     }
 
-    const user = await User.findOne({ email });
+    const user = await findUserByEmail(email);
     if (!user || !(await user.verifyPassword(password))) {
       const err = new Error("Invalid email or password");
       err.status = 401;

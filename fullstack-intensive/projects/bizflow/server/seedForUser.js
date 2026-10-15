@@ -1,4 +1,4 @@
-import { Customer } from "./models/Customer.js";
+import { countCustomersForOwner, seedCustomers } from "./repos/customers.js";
 
 const DEMO = [
   {
@@ -18,15 +18,8 @@ const DEMO = [
   },
 ];
 
-/** Give a brand-new account a few sample customers so the UI is not empty. */
 export async function seedCustomersForUser(userId) {
-  const count = await Customer.countDocuments({ owner: userId });
+  const count = await countCustomersForOwner(userId);
   if (count > 0) return;
-
-  await Customer.insertMany(
-    DEMO.map((row) => ({
-      ...row,
-      owner: userId,
-    })),
-  );
+  await seedCustomers(userId, DEMO);
 }

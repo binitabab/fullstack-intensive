@@ -1,10 +1,11 @@
 import jwt from "jsonwebtoken";
 import { config } from "../config.js";
-import { User } from "../models/User.js";
+import { findUserById } from "../repos/users.js";
 
 export function signToken(user) {
+  const id = user._id ?? user.id;
   return jwt.sign(
-    { sub: String(user._id), email: user.email },
+    { sub: String(id), email: user.email },
     config.jwtSecret,
     { expiresIn: "7d" },
   );
@@ -29,7 +30,6 @@ export function clearAuthCookie(res) {
   });
 }
 
-/** Requires a valid session cookie. Attaches req.user. */
 export async function requireAuth(req, res, next) {
   try {
     const token = req.cookies?.[config.cookieName];
@@ -48,7 +48,7 @@ export async function requireAuth(req, res, next) {
       throw err;
     }
 
-    const user = await User.findById(payload.sub).select("name email");
+    const user = await findUserById(payload.sub);
     if (!user) {
       const err = new Error("Authentication required");
       err.status = 401;

@@ -18,7 +18,7 @@ npm run dev:mongo      # needs Docker + network to pull mongo:7
 npm run dev            # API :4000 + web :5173
 ```
 
-If Docker Hub is slow/unavailable, start any MongoDB on `27017` and point `MONGODB_URI` in `.env`, then `npm run dev`.
+If Docker/Mongo is unavailable, set `USE_MEMORY_DB=1` in `.env` — the API falls back to an in-memory store (auth still works; data resets on restart).
 
 | Service | URL |
 |---------|-----|

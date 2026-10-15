@@ -1,7 +1,10 @@
 import { Router } from "express";
 import { normalizeCustomerInput } from "../../shared/customerValidation.js";
 import { requireAuth } from "../middleware/auth.js";
-import { Customer } from "../models/Customer.js";
+import {
+  createCustomerForOwner,
+  listCustomersForOwner,
+} from "../repos/customers.js";
 
 const router = Router();
 
@@ -9,10 +12,9 @@ router.use(requireAuth);
 
 router.get("/", async (req, res, next) => {
   try {
-    const rows = await Customer.find({ owner: req.user._id }).sort({
-      createdAt: -1,
-    });
-    res.json(rows.map((r) => r.toJSON()));
+    const ownerId = req.user._id ?? req.user.id;
+    const rows = await listCustomersForOwner(ownerId);
+    res.json(rows);
   } catch (err) {
     next(err);
   }
@@ -21,11 +23,9 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const clean = normalizeCustomerInput(req.body ?? {});
-    const customer = await Customer.create({
-      ...clean,
-      owner: req.user._id,
-    });
-    res.status(201).json(customer.toJSON());
+    const ownerId = req.user._id ?? req.user.id;
+    const customer = await createCustomerForOwner(ownerId, clean);
+    res.status(201).json(customer);
   } catch (err) {
     next(err);
   }
