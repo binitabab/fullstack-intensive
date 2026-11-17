@@ -9,6 +9,7 @@ Notes from the Claude Code session of 17 Nov 2026 where the existing Amharic Bib
 | [03-rebuild-plan.md](03-rebuild-plan.md) | The phase-by-phase plan for the rebuild |
 | [04-phase-0-1-report.md](04-phase-0-1-report.md) | What was built in phases 0 and 1, and what's next |
 | [05-conversation-log.md](05-conversation-log.md) | The conversation, question by question |
+| [06-phase-2-report.md](06-phase-2-report.md) | Phase 2: the reader screen |
 
 **Old app:** `com.ethiopic.bible` v1.0.4, Capacitor (React web app inside an Android WebView). Never published on the Play Store.
 **New app:** separate repository `holy-bible-et` (Expo SDK 58, React Native, TypeScript).

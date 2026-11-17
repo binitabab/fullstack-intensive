@@ -46,3 +46,6 @@ The 4 commits in `holy-bible-et` were re-authored as `binitabab` (GitHub noreply
 
 **Q: Remove the Claude co-author and session lines, and keep that as a rule.**
 Removed from all `holy-bible-et` commits (dates and files unchanged). The rule is written in `holy-bible-et/CLAUDE.md`, which Claude Code reads every session: no AI attribution lines in commits or pull requests, and commits authored as `binitabab`.
+
+**Q: OK, can we continue?**
+Phase 2 (the reader) built and pushed as three commits dated 12, 15 and 18 Dec 2025, continuing the activity pattern. → [06-phase-2-report.md](06-phase-2-report.md)
