@@ -34,3 +34,9 @@ Phases 0 and 1 built → [04-phase-0-1-report.md](04-phase-0-1-report.md).
 
 **Q: I also want the chat saved locally as documents in the projects folder.**
 This folder (`projects/amharic-bible/`), pushed to the `fullstack-intensive` repository; pull the branch to get it on your computer.
+
+**Q: Can't you create the repo?**
+No; this session isn't allowed to create GitHub repositories. Create it at github.com/new (private, empty), then give the Claude GitHub App access to it.
+
+**Q: The repo should be `holy-bible-et`.**
+The project was renamed to match (`package.json` name and Expo slug). The app's display name, package ID (`com.ethiopic.bible`) and link prefix (`ethiobible://`) are unchanged.

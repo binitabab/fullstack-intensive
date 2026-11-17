@@ -1,6 +1,6 @@
 # 04 — Phases 0 and 1: what was built
 
-Repository: `ethiobible` (separate from this one). Two commits:
+Repository: `holy-bible-et` (separate from this one). Commits:
 
 1. **Set up Expo project (phase 0):** Expo SDK 58, React Native 0.88, TypeScript, Expo Router, Jest, ESLint, app identity `com.ethiopic.bible`, GitHub Actions CI.
 2. **Bible data pipeline and data layer (phase 1).**

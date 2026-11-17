@@ -11,4 +11,4 @@ Notes from the Claude Code session of 17 Nov 2026 where the existing Amharic Bib
 | [05-conversation-log.md](05-conversation-log.md) | The conversation, question by question |
 
 **Old app:** `com.ethiopic.bible` v1.0.4, Capacitor (React web app inside an Android WebView). Never published on the Play Store.
-**New app:** separate repository `ethiobible` (Expo SDK 58, React Native, TypeScript).
+**New app:** separate repository `holy-bible-et` (Expo SDK 58, React Native, TypeScript).
