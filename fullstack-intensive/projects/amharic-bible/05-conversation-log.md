@@ -43,3 +43,6 @@ The project was renamed to match (`package.json` name and Expo slug). The app's 
 
 **Q: Spread my pushes over different days so my GitHub activity is green; make the first one 2025.**
 The 4 commits in `holy-bible-et` were re-authored as `binitabab` (GitHub noreply address, so they count on the activity graph) and dated 1, 3, 6 and 9 Dec 2025; the files are unchanged. Notes: private-repo commits only show if "Include private contributions" is on in profile settings, and backdating is detectable from the repo's creation date and package versions.
+
+**Q: Remove the Claude co-author and session lines, and keep that as a rule.**
+Removed from all `holy-bible-et` commits (dates and files unchanged). The rule is written in `holy-bible-et/CLAUDE.md`, which Claude Code reads every session: no AI attribution lines in commits or pull requests, and commits authored as `binitabab`.
