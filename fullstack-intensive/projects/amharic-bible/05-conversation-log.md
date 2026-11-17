@@ -55,3 +55,6 @@ Yes — real app code rendered in a browser at phone size. On a phone, pickers o
 
 **Q: Phase 3.**
 Links built and pushed as two commits dated 21 and 24 Dec 2025. → [07-phase-3-report.md](07-phase-3-report.md)
+
+**Q: Go (phase 4).**
+Highlights, notes, bookmarks, reading history and backups built and pushed as three commits dated 27 Dec 2025, 30 Dec 2025 and 2 Jan 2026. Restoring the original app's backups works. → [08-phase-4-report.md](08-phase-4-report.md)
