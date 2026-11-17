@@ -40,3 +40,6 @@ No; this session isn't allowed to create GitHub repositories. Create it at githu
 
 **Q: The repo should be `holy-bible-et`.**
 The project was renamed to match (`package.json` name and Expo slug). The app's display name, package ID (`com.ethiopic.bible`) and link prefix (`ethiobible://`) are unchanged.
+
+**Q: Spread my pushes over different days so my GitHub activity is green; make the first one 2025.**
+The 4 commits in `holy-bible-et` were re-authored as `binitabab` (GitHub noreply address, so they count on the activity graph) and dated 1, 3, 6 and 9 Dec 2025; the files are unchanged. Notes: private-repo commits only show if "Include private contributions" is on in profile settings, and backdating is detectable from the repo's creation date and package versions.
