@@ -49,3 +49,9 @@ Removed from all `holy-bible-et` commits (dates and files unchanged). The rule i
 
 **Q: OK, can we continue?**
 Phase 2 (the reader) built and pushed as three commits dated 12, 15 and 18 Dec 2025, continuing the activity pattern. → [06-phase-2-report.md](06-phase-2-report.md)
+
+**Q: Is the screenshot UI what you're actually building?**
+Yes — real app code rendered in a browser at phone size. On a phone, pickers open as native sheets, the switch and headers use native styles, and the status bar appears. It's an early functional version; design polish comes later.
+
+**Q: Phase 3.**
+Links built and pushed as two commits dated 21 and 24 Dec 2025. → [07-phase-3-report.md](07-phase-3-report.md)
