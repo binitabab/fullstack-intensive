@@ -58,3 +58,6 @@ Links built and pushed as two commits dated 21 and 24 Dec 2025. → [07-phase-3-
 
 **Q: Go (phase 4).**
 Highlights, notes, bookmarks, reading history and backups built and pushed as three commits dated 27 Dec 2025, 30 Dec 2025 and 2 Jan 2026. Restoring the original app's backups works. → [08-phase-4-report.md](08-phase-4-report.md)
+
+**Q: Yep (phase 5).**
+Home screen, tabs, Ethiopian date, a verse of the day that's the same for everyone and changes at local midnight, and daily reminders, pushed as three commits dated 5, 8 and 11 Jan 2026. Found and fixed two duplicate daily verses and a browser-only blank page. → [09-phase-5-report.md](09-phase-5-report.md)
