@@ -75,3 +75,22 @@ A new signing key was made and added on GitHub; the APK was uploaded again for i
 From the same Cloudflare R2 storage the old app used, and yes, all 13.
 
 Phase 7 built and pushed as four commits dated 9, 12, 17 and 21 Feb 2026: cross-references, Strong's numbers, downloads of 16 Bibles, parallel reading, compare, and verse images. The old app's Afar Bible showed Joshua as "Genesis" (its books were misnumbered), and Dawro and Gamo had hundreds of verses that couldn't be reached by number; all are fixed. The download files still need uploading to R2. → [12-phase-7-report.md](12-phase-7-report.md)
+
+**(Continued: testing and planning.)**
+The 17 download files were uploaded to R2 and checked byte for byte. On the owner's phone in Expo Go, downloads and image sharing work. Saving to the gallery needs a development build, because Expo Go can't get photo permission on Android.
+
+**Q: Fixes I noticed (Amharic red letters, reading stats, 8 themes, the Notifications button, pinch to zoom, live font settings, a smaller settings sheet, a font picker, themes everywhere, animations). Organise them, suggest features, and should I start a new chat?**
+Organised into bugs, reading comfort, look and feel, and a missing page. Ten features were suggested. The owner kept: go to verse by typing, keep the screen on, find notes and highlights, export notes, memory verses, plan reminders, and share a passage. Not planned: read aloud, the church calendar and automatic Drive backup.
+
+Everything is planned as phases 8–15 in `holy-bible-et/docs/plan.md`:
+- 8 reader comfort and fixes
+- 9 themes
+- 10 reading stats
+- 11 study tools
+- 12 animations
+- 13 widgets and a development build
+- 14 polish
+- 15 release
+
+The old app's red-letter list, theme colours and wording were saved into the repo, so the APK isn't needed again. Each phase runs in a new chat, which keeps sessions fast.
+
