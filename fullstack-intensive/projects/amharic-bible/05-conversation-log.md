@@ -67,3 +67,11 @@ The new app was restyled to match: the warm coral palette, round header buttons,
 
 **(Continued: phase 6.)**
 Search and reading plans built and pushed as three commits dated 23, 27 and 30 Jan 2026. The original app's plans had empty days, repeated chapters and two missing chapters (Obadiah, Jeremiah 52); the whole-Bible plans are now rebuilt so each chapter is read once. Search treats Amharic letters that sound the same as one, so either spelling of a word is found. → [11-phase-6-report.md](11-phase-6-report.md)
+
+**Q: Continue with phase 7. Attach the docs repo, and set up commit signing first.**
+A new signing key was made and added on GitHub; the APK was uploaded again for its data.
+
+**Q: Where should NASV, Tigrigna and Oromo be downloaded from, and should the old app's 13 extra Bibles be offered too?**
+From the same Cloudflare R2 storage the old app used, and yes, all 13.
+
+Phase 7 built and pushed as four commits dated 9, 12, 17 and 21 Feb 2026: cross-references, Strong's numbers, downloads of 16 Bibles, parallel reading, compare, and verse images. The old app's Afar Bible showed Joshua as "Genesis" (its books were misnumbered), and Dawro and Gamo had hundreds of verses that couldn't be reached by number; all are fixed. The download files still need uploading to R2. → [12-phase-7-report.md](12-phase-7-report.md)

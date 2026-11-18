@@ -15,6 +15,7 @@ Notes from the Claude Code session of 17 Nov 2026 where the existing Amharic Bib
 | [09-phase-5-report.md](09-phase-5-report.md) | Phase 5: home, verse of the day, reminders |
 | [10-restyle-report.md](10-restyle-report.md) | Restyle to match the original app's look |
 | [11-phase-6-report.md](11-phase-6-report.md) | Phase 6: search and reading plans |
+| [12-phase-7-report.md](12-phase-7-report.md) | Phase 7: cross-references, Strong's numbers, downloads, parallel reading, verse images |
 
 **Old app:** `com.ethiopic.bible` v1.0.4, Capacitor (React web app inside an Android WebView). Never published on the Play Store.
 **New app:** separate repository `holy-bible-et` (Expo SDK 58, React Native, TypeScript).
