@@ -61,3 +61,6 @@ Highlights, notes, bookmarks, reading history and backups built and pushed as th
 
 **Q: Yep (phase 5).**
 Home screen, tabs, Ethiopian date, a verse of the day that's the same for everyone and changes at local midnight, and daily reminders, pushed as three commits dated 5, 8 and 11 Jan 2026. Found and fixed two duplicate daily verses and a browser-only blank page. → [09-phase-5-report.md](09-phase-5-report.md)
+
+**Q: Check these screenshots of the old app (13 phone screenshots).**
+The new app was restyled to match: the warm coral palette, round header buttons, books drawer, translation dropdown, settings sheet with sliders, the old bottom bar plus More, and the old notes and verse-menu layouts. Pushed as three commits dated 14, 17 and 20 Jan 2026. The screenshots also confirmed an old bug on a real phone: the verse of the day showed Malachi 3:1, the fallback from the Malachi 3:23 numbering bug. → [10-restyle-report.md](10-restyle-report.md)
