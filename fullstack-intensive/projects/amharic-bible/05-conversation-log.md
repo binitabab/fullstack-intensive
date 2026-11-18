@@ -98,3 +98,8 @@ The old app's red-letter list, theme colours and wording were saved into the rep
 A new signing key was made for the session.
 
 Phase 8 built as three commits dated 5, 8 and 11 Mar 2026, plus a notes update on 13 Mar. Jesus' words are now red in Amharic. The 39 entries that seemed unmatched were keyed by range labels, and all match. The settings sheet opens at 45%, can be dragged, and changes the text behind it live. More → Notifications goes to the reminders. There's a font picker with two new OFL fonts, Abyssinica SIL and Menbere. Pinch to zoom works in the reader, and the screen stays on while reading. A bug where the screen could stay on after leaving the reader was found and fixed. → [13-phase-8-report.md](13-phase-8-report.md)
+
+**Q: Do phase 9 from docs/plan.md.**
+A new signing key was made for the session.
+
+Phase 9 built as two commits dated 16 and 18 Mar 2026, plus the browser check and notes on 20 Mar. The app now has the old app's 8 themes, each light and dark, built from its own colours. Ten text colours were adjusted for contrast, nearly all accent-coloured text in light themes. Alerts, the keyboard and the Android navigation bar now follow the app's light/dark choice, and the splash is brown instead of Expo's blue. A contact sheet shows every main screen in all 16 combinations. → [14-phase-9-report.md](14-phase-9-report.md)
