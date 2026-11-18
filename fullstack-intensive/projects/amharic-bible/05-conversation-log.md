@@ -103,3 +103,6 @@ Phase 8 built as three commits dated 5, 8 and 11 Mar 2026, plus a notes update o
 A new signing key was made for the session.
 
 Phase 9 built as two commits dated 16 and 18 Mar 2026, plus the browser check and notes on 20 Mar. The app now has the old app's 8 themes, each light and dark, built from its own colours. Ten text colours were adjusted for contrast, nearly all accent-coloured text in light themes. Alerts, the keyboard and the Android navigation bar now follow the app's light/dark choice, and the splash is brown instead of Expo's blue. A contact sheet shows every main screen in all 16 combinations. → [14-phase-9-report.md](14-phase-9-report.md)
+
+**Q: How many phases are left? Can we merge them, or build them in parallel chats?**
+Six were left (10–15). They were regrouped into four: stats and study tools together (10), widgets and a development build (11), animations with polish (12), and the release (13). Only phase 11 is independent enough to run alongside another, so phases 10 and 11 run in two chats at the same time. `holy-bible-et/docs/plan.md` gives each chat its branch, commit dates, files and report number, and how phase 11 merges in.
