@@ -64,3 +64,6 @@ Home screen, tabs, Ethiopian date, a verse of the day that's the same for everyo
 
 **Q: Check these screenshots of the old app (13 phone screenshots).**
 The new app was restyled to match: the warm coral palette, round header buttons, books drawer, translation dropdown, settings sheet with sliders, the old bottom bar plus More, and the old notes and verse-menu layouts. Pushed as three commits dated 14, 17 and 20 Jan 2026. The screenshots also confirmed an old bug on a real phone: the verse of the day showed Malachi 3:1, the fallback from the Malachi 3:23 numbering bug. → [10-restyle-report.md](10-restyle-report.md)
+
+**(Continued: phase 6.)**
+Search and reading plans built and pushed as three commits dated 23, 27 and 30 Jan 2026. The original app's plans had empty days, repeated chapters and two missing chapters (Obadiah, Jeremiah 52); the whole-Bible plans are now rebuilt so each chapter is read once. Search treats Amharic letters that sound the same as one, so either spelling of a word is found. → [11-phase-6-report.md](11-phase-6-report.md)
