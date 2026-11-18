@@ -106,3 +106,8 @@ Phase 9 built as two commits dated 16 and 18 Mar 2026, plus the browser check an
 
 **Q: How many phases are left? Can we merge them, or build them in parallel chats?**
 Six were left (10–15). They were regrouped into four: stats and study tools together (10), widgets and a development build (11), animations with polish (12), and the release (13). Only phase 11 is independent enough to run alongside another, so phases 10 and 11 run in two chats at the same time. `holy-bible-et/docs/plan.md` gives each chat its branch, commit dates, files and report number, and how phase 11 merges in.
+
+**Q: Do phase 11 from docs/plan.md.** (In a second chat, alongside phase 10.)
+A new signing key was made for the session.
+
+Phase 11 built as three commits dated 14, 18 and 22 Apr 2026, on the branch `phase-11-widgets`. Expo's own `expo-widgets` was checked first, but on Android it's experimental and its widgets never update on their own. So the widget uses `react-native-android-widget`, which works out each day's verse in a background task. The widget shows Home's verse of the day with the Ethiopian date, in the app's theme, and opens the verse when tapped. `eas.json` has development, preview and production profiles. The owner builds on their laptop: a `preview` build is the one to test the widget, gallery saving and reminders on the phone. The branch merges into `main` after phase 10. → [16-phase-11-report.md](16-phase-11-report.md)
