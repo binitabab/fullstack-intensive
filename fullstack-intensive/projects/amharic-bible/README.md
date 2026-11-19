@@ -22,6 +22,7 @@ Notes from the Claude Code session of 17 Nov 2026 where the existing Amharic Bib
 | [16-phase-11-report.md](16-phase-11-report.md) | Phase 11: the verse-of-the-day home-screen widget for Android, and EAS development builds |
 | [17-phase-11-5-report.md](17-phase-11-5-report.md) | Phase 11.5: fixes from the phone test — lighter headers, one verse selection mode, two highlighter modes, ※ cross-reference marks, Ge'ez numbers, a time picker, Backup in More, grey photos in Monochrome, and the blank widget |
 | [18-phase-12-report.md](18-phase-12-report.md) | Phase 12: calm animations that follow reduce motion, a four-card welcome tour, an accessibility pass, and one checklist of wording for a native speaker |
+| [19-phase-12-5-report.md](19-phase-12-5-report.md) | Phase 12.5: fixes from the phone test — cross-references under the verse, rounded highlights, reading time, Reading Stats with animated charts, the books drawer after a reference, and one set of design tokens and shared components on every screen |
 
 **Old app:** `com.ethiopic.bible` v1.0.4, Capacitor (React web app inside an Android WebView). Never published on the Play Store.
 **New app:** separate repository `holy-bible-et` (Expo SDK 58, React Native, TypeScript).
